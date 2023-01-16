@@ -7,13 +7,20 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class ValidateRcbTeam {
-
+    /**
+     * Execute before first @Test in the suite
+     * Parse the JSON file
+     * Load property file
+     */
     @BeforeTest
     public void beforeTest(){
         CommonUtils.parseJson("TeamRCB");
         CommonUtils.readPropertiesFile("rcbTeam");
     }
 
+    /**
+     * Test script to verify rcb team has only 4 foreign players.
+     */
     @Test
     public void verify_foreignPlayerCount(){
         int foreignPlayer_Count = 0;
@@ -23,6 +30,10 @@ public class ValidateRcbTeam {
         Assert.assertTrue(foreignPlayer_Count==4);
 
     }
+
+    /**
+     * Test script to verify rcb team has at-least one wicketKeeper.
+     */
 
     @Test
     public void verify_wicketKeeperCount(){

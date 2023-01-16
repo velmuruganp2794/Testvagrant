@@ -13,6 +13,12 @@ public class CommonUtils {
     public static DocumentContext document;
     public static Properties prop;
 
+    /**
+     * Parse the JSON into DocumentContext object
+     * @param filename - String type filename
+     * @return void
+     */
+
     public static void parseJson(String filename){
         try {
             File jsonFile = new File("./src/main/resources/JsonTemplates/" + filename + ".json");
@@ -21,6 +27,12 @@ public class CommonUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Read the JSON value from DocumentContext object using jsonPath
+     * @param jsonPath - String type JSONPath
+     * @return List<String>
+     */
 
     public static List<String> readJsonValue(String jsonPath) {
         List<String> jsonObject = null;
@@ -33,6 +45,11 @@ public class CommonUtils {
         return jsonObject;
     }
 
+    /**
+     * Read the property file
+     * @param propertyFile - String type property filename.
+     * @return Properties.
+     */
     public static Properties readPropertiesFile(String propertyFile) {
 
         File file = new File("./src/main/resources/Config/" + propertyFile + ".properties");
